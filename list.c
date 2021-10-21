@@ -45,3 +45,15 @@ struct song_node * remove_node(struct song_node *front, char name[], char artist
     }
     return temp;
 }
+
+int compare(struct song_node *a, struct song_node *b) {
+    int c = strcasecmp(a -> artist, b -> artist);
+    if (!c) {
+        return c;
+    }
+    int d = strcasecmp(a -> name, b -> name);
+    if (!d) {
+        return d;
+    }
+    return 0;
+}
