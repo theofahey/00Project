@@ -6,6 +6,7 @@
 int main() {
     struct song_node *list = NULL;
     list = insert_front(list, "A", "some");
+    list = insert_front(list, "B", "some");
     print_list(list);
     list = remove_node(list, "a", "some");
     print_list(list);
