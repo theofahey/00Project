@@ -46,7 +46,16 @@ struct song_node * remove_node(struct song_node *front, char name[], char artist
     }
     return temp;
 }
-
+struct song_node * find_song(struct song_node *front, char name[], char artist[]){
+	while (front != NULL){
+	if ((strcasecmp(front -> name, name) == 0) && (strcasecmp(front -> artist,artist) == 0)){-
+		return front;
+		
+	}
+	front = front->next;
+}
+	return NULL;
+}
 int compare(struct song_node *a, struct song_node *b) {
     int c = strcasecmp(a -> artist, b -> artist);
     if (!c) {
