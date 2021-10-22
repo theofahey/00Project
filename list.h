@@ -14,3 +14,4 @@ struct song_node * find_node(struct song_node *front, char name[], char artist[]
 struct song_node * insert_node(struct song_node *front, char name[], char artist[]);
 struct song_node * find_artist(struct song_node *front, char artist[]);
 struct song_node * random_node(struct song_node *front);
+int length_list(struct song_node *front);

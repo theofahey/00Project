@@ -9,12 +9,10 @@ int main() {
     print_list(list);
     list = insert_node(list, "B", "B");
     list = insert_node(list, "C", "A");
-    list = remove_node(list, "D", "A");
-    list = remove_node(list, "B", "B");
-    list = remove_node(list, "D", "A");
-    list = remove_node(list, "E", "F");
     print_list(list);
     print_list(find_artist(list,"C"));
+    printf("%d\n", length_list(list));
+    print_list(random_node(list));
     return 0;
     struct song_node **library = create_library();
 
