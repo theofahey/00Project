@@ -18,5 +18,6 @@ int main() {
     insert_element(library, "Hire", "War");
     print_library(library);
     print_letter(library,'W');
+    print_node(find_element_artist(library, "War"));
     return 0;
 }

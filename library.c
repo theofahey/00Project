@@ -35,3 +35,7 @@ struct song_node * find_element(struct song_node **library, char name[], char ar
 void print_letter(struct song_node **library, char l) {
     print_list(library[letter(&l)]);
 }
+
+struct song_node * find_element_artist(struct song_node **library, char artist[]) {
+    return find_artist(library[letter(artist)], artist);
+}
