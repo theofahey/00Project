@@ -12,6 +12,11 @@ void print_list(struct song_node *front) {
     }
     printf("]\n");
 }
+void print_node(struct song_node *element) {
+    if (element) {
+        printf("{Name: %s, Artist: %s}\n", element -> name, element -> artist);
+    }
+}
 struct song_node * insert_front(struct song_node *front, char name[], char artist[]) {
     struct song_node *n = malloc(sizeof(struct song_node));
     strncpy(n -> name, name, sizeof(n -> name));
