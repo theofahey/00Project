@@ -5,10 +5,10 @@
 
 int main() {
     struct song_node *list = NULL;
-    list = insert_front(list, "A", "some");
-    list = insert_front(list, "B", "some");
+    list = insert_song(list, "D", "A");
     print_list(list);
-    list = remove_node(list, "a", "some");
+    list = insert_song(list, "B", "A");
+    list = insert_song(list, "C", "A");
     print_list(list);
     return 0;
 }
