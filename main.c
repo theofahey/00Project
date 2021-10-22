@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "list.h"
+#include "library.h"
 
 int main() {
     struct song_node *list = NULL;
@@ -16,4 +16,6 @@ int main() {
     print_list(list);
     print_list(find_artist(list,"C"));
     return 0;
+    struct song_node **library = create_library();
+
 }

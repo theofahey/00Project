@@ -46,7 +46,7 @@ struct song_node * remove_node(struct song_node *front, char name[], char artist
     }
     return temp;
 }
-struct song_node * find_song(struct song_node *front, char name[], char artist[]) {
+struct song_node * find_node(struct song_node *front, char name[], char artist[]) {
 	while (front) {
 	    if (!(strcasecmp(front -> name, name)) && !(strcasecmp(front -> artist,artist))) {
 		    return front;
@@ -98,4 +98,8 @@ struct song_node * find_artist(struct song_node *front, char artist[]) {
         front = front -> next;
     }
     return NULL;
+}
+
+struct song_node * random_node(struct song_node *front) {
+
 }
