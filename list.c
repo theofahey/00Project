@@ -26,16 +26,19 @@ struct song_node * free_list(struct song_node *front) {
     }
     return front;
 }
-struct song_node * remove_song(struct song_node *front, char name[], char artist[]) {
+struct song_node * remove_node(struct song_node *front, char name[], char artist[]) {
     if (!front) {
         return NULL;
     }
     if (!(strcasecmp(front -> name, name) || strcasecmp(front -> artist, artist))) {
-        return front -> next;
+        struct song_node *temp = front -> next;
+        free(front);
+        return temp;
     }
     struct song_node *temp = front;
     while (front -> next) {
         if (!(strcasecmp(front -> next -> name, name) || strcasecmp(front -> next -> artist, artist))) {
+            free(front -> next);
             front -> next = front -> next -> next;
             break;
         }
@@ -43,7 +46,7 @@ struct song_node * remove_song(struct song_node *front, char name[], char artist
     }
     return temp;
 }
-struct song_node * find_song(struct song_node *front, char name[], char artist[]){
+struct song_node * find_song(struct song_node *front, char name[], char artist[]) {
 	while (front) {
 	    if (!(strcasecmp(front -> name, name)) && !(strcasecmp(front -> artist,artist))) {
 		    return front;
@@ -64,7 +67,7 @@ int compare(struct song_node *a, struct song_node *b) {
     return 0;
 }
 
-struct song_node * insert_song(struct song_node *front, char name[], char artist[]) {
+struct song_node * insert_node(struct song_node *front, char name[], char artist[]) {
     struct song_node *n = NULL;
     n = insert_front(n, name, artist);
     struct song_node *temp = front;
@@ -85,4 +88,14 @@ struct song_node * insert_song(struct song_node *front, char name[], char artist
     }
     front -> next = n;
     return temp;
+}
+
+struct song_node * find_artist(struct song_node *front, char artist[]) {
+    while (front) {
+        if (!strcasecmp(front -> artist, artist)) {
+            return front;
+        }
+        front = front -> next;
+    }
+    return NULL;
 }
