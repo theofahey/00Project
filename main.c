@@ -16,8 +16,10 @@ int main() {
     insert_element(library, "Hello", "World");
     insert_element(library, "Hi", "World");
     insert_element(library, "Hire", "War");
-    print_library(library);
-    print_letter(library,'W');
-    print_node(find_element_artist(library, "War"));
+   // print_library(library);
+   // print_letter(library,'W');
+   //print_node(find_element_artist(library, "World"));
+    //printf("This Works");
+    print_artist(library, "World");
     return 0;
 }

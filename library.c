@@ -39,3 +39,16 @@ void print_letter(struct song_node **library, char l) {
 struct song_node * find_element_artist(struct song_node **library, char artist[]) {
     return find_artist(library[letter(artist)], artist);
 }
+
+void print_artist(struct song_node ** library, char artist[]){
+    struct song_node * musician = find_artist(library[letter(artist)],artist);
+    printf("All songs by %s: ", artist);
+    while (!strcasecmp(musician -> artist,artist)){
+       printf("%s \t", musician->name);
+        if (musician->next == NULL){
+            break;
+        }
+       musician = musician->next;
+    }
+    printf("\n");
+}
