@@ -16,10 +16,15 @@ int main() {
     insert_element(library, "Hello", "World");
     insert_element(library, "Hi", "World");
     insert_element(library, "Hire", "War");
+    insert_element(library, "Wonderwall","Oasis");
+    insert_element(library, "Another Song", "Oasis");
+    insert_element(library, "ATST", "Blink-182");
+    insert_element(library, "Hey There Delilah", "Plain White T's");
    // print_library(library);
    // print_letter(library,'W');
    //print_node(find_element_artist(library, "World"));
     //printf("This Works");
-    print_artist(library, "World");
+    //print_artist(library, "World");
+    shuffle(library,2);
     return 0;
 }

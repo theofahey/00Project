@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <time.h>
 #include "library.h"
 
 struct song_node ** create_library() {
@@ -52,3 +53,26 @@ void print_artist(struct song_node ** library, char artist[]){
     }
     printf("\n");
 }
+void shuffle(struct song_node ** library,int amount){
+    struct song_node * already_used = NULL;
+    srand(time(0));
+    for (int i = 0; i < amount; i++){
+        int l = 27;
+        l = rand() % l;
+        if (library[l]==NULL){
+            i--;
+        }
+        else{
+        struct song_node * song1 = random_node(library[l]);
+        if ((find_node(already_used,song1->name,song1->artist) != NULL)){
+            i--;
+        }
+        else {
+            print_node(song1);
+            already_used = insert_front(already_used,song1->name,song1->artist);
+            
+            }
+    }
+    }
+}
+                       
