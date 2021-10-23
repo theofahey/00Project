@@ -46,7 +46,7 @@ void print_artist(struct song_node ** library, char artist[]){
     printf("All songs by %s: ", artist);
     while (!strcasecmp(musician -> artist,artist)){
        printf("%s \t", musician->name);
-        if (musician->next == NULL){
+        if (!musician){
             break;
         }
        musician = musician->next;
@@ -55,24 +55,58 @@ void print_artist(struct song_node ** library, char artist[]){
 }
 void shuffle(struct song_node ** library,int amount){
     struct song_node * already_used = NULL;
-    srand(time(0));
+    int counter [27];
+    int total = 0;
+    int i;
+    for (int i = 0; i < 27; i++){
+        total += length_list(library[i]);
+        //printf("%d\n",total);
+        counter[i] = total;
+    }
+    
+   // printf("%d\n", total);
+    srand(time(NULL));
     for (int i = 0; i < amount; i++){
-        int l = 27;
-        l = rand() % l;
-        if (library[l]==NULL){
-            i--;
-        }
-        else{
-        struct song_node * song1 = random_node(library[l]);
-        if ((find_node(already_used,song1->name,song1->artist) != NULL)){
-            i--;
-        }
-        else {
-            print_node(song1);
-            already_used = insert_front(already_used,song1->name,song1->artist);
-            
+        int l = 0;
+        l = rand() % total;
+        int letter = 0;
+        for (int i = 0; i < 27; i++){
+            if (l < counter[i]){
+                letter = i;
+                break;
             }
+        }
+        //printf("letter: %d\n",letter);
+        struct song_node * correct_letter = library[letter];
+        
+        int h = counter[letter] - l;
+        int c = 0;
+       for (c = 1; c < h; c++){
+            correct_letter = correct_letter->next;
+        }
+        if ((find_node(already_used,correct_letter->name,correct_letter->artist) != NULL)){
+            i--;
+             }
+        else{
+        print_node(correct_letter);
+        already_used = insert_front(already_used,correct_letter->name,correct_letter->artist);
+        }
+                //printf("%d\n", l);
+//        if (library[l]==NULL){
+//            i--;
+//        }
+//        else{
+//        struct song_node * song1 = random_node(library[l]);
+//        if ((find_node(already_used,song1->name,song1->artist) != NULL)){
+//            i--;
+//        }
+//        else {
+//            print_node(song1);
+//            already_used = insert_front(already_used,song1->name,song1->artist);
+//
+//            }
+//    }
     }
-    }
-}
+            }
+
                        
