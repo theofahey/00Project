@@ -114,9 +114,9 @@ int length_list(struct song_node *front) {
     }
     return i;
 }
-struct song_node * random_node(struct song_node *front) {
+struct song_node * random_node(struct song_node *front, int seed) {
     int l = length_list(front);
-    srand(time(NULL));
+    srand(seed);
     l = rand() % l;
     while (l) {
         front = front -> next;
