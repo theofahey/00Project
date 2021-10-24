@@ -10,5 +10,6 @@ void print_letter(struct song_node **library, char letter);
 struct song_node * find_element(struct song_node **library, char name[], char artist[]);
 struct song_node * find_element_artist(struct song_node **library, char artist[]);
 void print_artist(struct song_node ** library, char artist[]);
-void shuffle(struct song_node ** library,int amount);
+void shuffle(struct song_node ** library,int amount, int rand_seed);
 struct song_node ** delete_song(struct song_node ** library, char song[], char artist[]);
+
