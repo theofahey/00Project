@@ -25,7 +25,10 @@ void insert_element(struct song_node **library, char name[], char artist[]) {
 void print_library(struct song_node **library) {
     int i;
     for (i = 0; i < LENGTH; i++) {
-        print_list(library[i]);
+        if (library[i]) {
+            printf("%c: ", 'A' + i - 1);
+            print_list(library[i]);
+        }
     }
 }
 
