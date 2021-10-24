@@ -85,7 +85,6 @@ int main() {
 
     printf("\n\n");
     struct song_node **library = create_library();
-    printf("LIBRARY TESTS\n\n");
     printf("Test Print Letter: \n");
     print_letter(library,'W');
     printf("Test Print Library: \n");
@@ -111,11 +110,17 @@ int main() {
         printf("Song Not Found! \n");
     }
     printf("Testing Find Artist: \n");
-    printf("Looking for Oasis\n");;
+    printf("Looking for World\n");;
     printf("Artist Found! \n");
-    print_artist(library, "Oasis");
-    printf("Testing Clear Library");
-    clear_library(library);
+    print_list(find_element_artist(library, "World"));
+    printf("Testing Remove Node: \n");
+    printf("Removing Another Song - Oasis\n");
+    delete_song(library, "Another Song", "Oasis");
+    print_library(library);
+    printf("Adding Songs to Empty Library: \n");
+    insert_element(library, "Thunderstruck", "AC/DC");
+    insert_element(library, "alive", "Pearl Jam");
+    insert_element(library, "even flow", "Pearl Jam");
     print_library(library);
     return 0;
     
