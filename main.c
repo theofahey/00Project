@@ -27,6 +27,8 @@ int main() {
    //print_node(find_element_artist(library, "World"));
     //printf("This Works");
     //print_artist(library, "World");
-    shuffle(library,4);
+    //shuffle(library,4);
+    delete_song(library, "Wonderwall", "Oasis");
+    print_library(library);
     return 0;
 }

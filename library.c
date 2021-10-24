@@ -64,7 +64,6 @@ void shuffle(struct song_node ** library,int amount){
         counter[i] = total;
     }
     
-   // printf("%d\n", total);
     srand(time(NULL));
     for (int i = 0; i < amount; i++){
         int l = 0;
@@ -76,7 +75,6 @@ void shuffle(struct song_node ** library,int amount){
                 break;
             }
         }
-        //printf("letter: %d\n",letter);
         struct song_node * correct_letter = library[letter];
         
         int h = counter[letter] - l;
@@ -91,22 +89,14 @@ void shuffle(struct song_node ** library,int amount){
         print_node(correct_letter);
         already_used = insert_front(already_used,correct_letter->name,correct_letter->artist);
         }
-                //printf("%d\n", l);
-//        if (library[l]==NULL){
-//            i--;
-//        }
-//        else{
-//        struct song_node * song1 = random_node(library[l]);
-//        if ((find_node(already_used,song1->name,song1->artist) != NULL)){
-//            i--;
-//        }
-//        else {
-//            print_node(song1);
-//            already_used = insert_front(already_used,song1->name,song1->artist);
-//
-//            }
-//    }
+           
     }
+    
             }
+struct song_node ** delete_song(struct song_node ** library, char song[], char artist[]){
+    int a = letter(artist);
+    library[a] = remove_node(library[a], song, artist);
+    return library;
+}
 
                        
