@@ -83,7 +83,9 @@ int main() {
     list = free_list(list);
     print_list(list);
 
+    printf("\n\n");
     struct song_node **library = create_library();
+    printf("LIBRARY TESTS\n\n");
     printf("Test Print Letter: \n");
     print_letter(library,'W');
     printf("Test Print Library: \n");
