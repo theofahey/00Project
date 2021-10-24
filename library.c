@@ -102,4 +102,9 @@ struct song_node ** delete_song(struct song_node ** library, char song[], char a
     return library;
 }
 
-                       
+void clear_library(struct song_node **library) {
+    int i;
+    for (i = 0; i < LENGTH; i++) {
+        library[i] = free_list(library[i]);
+    }
+}

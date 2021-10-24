@@ -112,6 +112,9 @@ int main() {
     printf("Looking for Oasis\n");;
     printf("Artist Found! \n");
     print_artist(library, "Oasis");
+    printf("Testing Clear Library");
+    clear_library(library);
+    print_library(library);
     return 0;
     
 }
