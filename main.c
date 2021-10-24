@@ -4,6 +4,84 @@
 #include "library.h"
 
 int main() {
+    struct song_node *list = NULL;
+    printf("LINKED LIST TESTS\n");
+    
+    printf("\nTesting insert_front:\n");
+    list = insert_front(list, "Thunderstruck", "AC/DC");
+    printf("Inserted 'Thunderstruck' by 'AC/DC'\n");
+
+    printf("\nTesting print_list:\n");
+    print_list(list);
+
+    printf("\nTesting print_node:\n");
+    print_node(list);
+
+    printf("\nTesting insert_node:\n");
+    list = insert_node(list, "Street Spirit (Fade Out)", "Radiohead");
+    printf("Inserted 'Street Spirit (Fade Out)' by 'Radiohead'\n");
+    list = insert_node(list, "Even Flow", "Pearl Jam");
+    printf("Inserted 'Even Flow' by 'Pearl Jam'\n");
+    list = insert_node(list, "Time", "Pink Floyd");
+    printf("Inserted 'Time' by 'Pink Floyd'\n");
+    list = insert_node(list, "Alive", "Pearl Jam");
+    printf("Inserted 'Alive' by 'Pearl Jam'\n");
+    list = insert_node(list, "Paranoid Android", "Radiohead");
+    printf("Inserted 'Paranoid Android' by 'Radiohead'\n");
+    list = insert_node(list, "Yellow Ledbetter", "Pearl Jam");
+    printf("Inserted 'Yellow Ledbetter' by 'Pearl Jam'\n");
+    print_list(list);
+
+    printf("\nTesting length_list\n");
+    printf("Length: %d\n", length_list(list));
+
+    printf("\nTesting compare:\n");
+    struct song_node *e1 = list;
+    struct song_node *e2 = list -> next -> next -> next;
+    printf("Comparing '%s' by '%s' to '%s' by '%s': %d\n", e1 -> name, e1 -> artist, e2 -> name, e2 -> artist, compare(e1,e2));
+    e1 = list -> next -> next;
+    e2 = list -> next;
+    printf("Comparing '%s' by '%s' to '%s' by '%s': %d\n", e1 -> name, e1 -> artist, e2 -> name, e2 -> artist, compare(e1,e2));
+    e1 = list -> next;
+    e2 = list -> next;
+    printf("Comparing '%s' by '%s' to '%s' by '%s': %d\n", e1 -> name, e1 -> artist, e2 -> name, e2 -> artist, compare(e1,e2));
+    
+    printf("\nTesting find_node:\n");
+    e1 = find_node(list, "Alive", "Pearl Jam");
+    e2 = find_node(list, "None", "None");
+    printf("Finding node '%s' by '%s': %p (Address) ", "Alive", "Pearl Jam", e1);
+    print_node(e1);
+    printf("Finding node '%s' by '%s': %p (Address) ", "None", "None", e2);
+    print_node(e2);
+    printf("\n");
+
+    printf("\nTesting find_artist:\n");
+    e1 = find_artist(list, "Pearl Jam");
+    e2 = find_artist(list, "AC/DC");
+    printf("Finding artist 'Pearl Jam'. Their first song is: ");
+    print_node(e1);
+    printf("Finding artist 'AC/DC'. Their first song is: ");
+    print_node(e2);
+
+    printf("\nTesting random_node:\n");
+    srand(time(NULL));
+    print_node(random_node(list, rand()));
+    print_node(random_node(list, rand()));
+    print_node(random_node(list, rand()));
+    print_node(random_node(list, rand()));
+    print_node(random_node(list, rand()));
+
+    printf("\nTesting remove_node\n");
+    printf("Removing 'Alive' by 'Pearl Jam'\n");
+    list = remove_node(list, "Alive", "Pearl Jam");
+    printf("Removing 'Paranoid Android' by 'Radiohead'\n");
+    list = remove_node(list, "Paranoid Android", "Radiohead");
+    print_list(list);
+
+    printf("\nTesting free_list\n");
+    list = free_list(list);
+    print_list(list);
+
     struct song_node **library = create_library();
     printf("Test Print Letter: \n");
     print_letter(library,'W');
