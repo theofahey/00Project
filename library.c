@@ -56,7 +56,7 @@ void print_artist(struct song_node ** library, char artist[]){
     }
     printf("\n");
 }
-void shuffle(struct song_node ** library,int amount){
+void shuffle(struct song_node ** library,int amount, int rand_seed){
     struct song_node * already_used = NULL;
     int counter [27];
     int total = 0;
@@ -67,7 +67,7 @@ void shuffle(struct song_node ** library,int amount){
         counter[i] = total;
     }
     
-    srand(time(NULL));
+    srand(rand_seed);
     for (int i = 0; i < amount; i++){
         int l = 0;
         l = rand() % total;
