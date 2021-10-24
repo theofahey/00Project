@@ -84,6 +84,8 @@ int main() {
     print_list(list);
 
     printf("\n\n");
+    printf("LIBRARY TESTS\n");
+    printf("--------------\n");
     struct song_node **library = create_library();
     printf("Test Print Letter: \n");
     print_letter(library,'W');
