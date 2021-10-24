@@ -121,8 +121,11 @@ int main() {
     shuffle(library,4,rand());
     printf("Shuffling Again: \n");
     shuffle(library,4,rand());
-    printf("Adding Songs to Empty Library: \n");
+    printf("Testing Empty Library:\n");
     clear_library(library);
+    printf("Empty Library: \n");
+    print_library(library);
+    printf("Adding Songs to Empty Library: \n");
     insert_element(library, "Thunderstruck", "AC/DC");
     insert_element(library, "alive", "Pearl Jam");
     insert_element(library, "even flow", "Pearl Jam");
