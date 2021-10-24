@@ -104,7 +104,7 @@ int main() {
     print_library(library);
     printf("Testing find: \n");
     printf("Looking for \"Hello World\":\n");
-    printf("Song found!: %s, %s \n", (find_element(library, "Hello", "World") -> name),(find_element(library, "Hello", "World") -> artist) );
+    printf("Song found!: %s, %s  at location %p \n", (find_element(library, "Hello", "World") -> name),(find_element(library, "Hello", "World") -> artist),(find_element(library, "Hello", "World") ));
     printf("Looking for \"Goodbye Moon\":\n");
     if ((find_element(library, "Goodbye", "Moon"))  == NULL){
         printf("Song Not Found! \n");
@@ -117,11 +117,18 @@ int main() {
     printf("Removing Another Song - Oasis\n");
     delete_song(library, "Another Song", "Oasis");
     print_library(library);
+    printf("Testing Shuffle: \n");
+    shuffle(library,4,rand());
+    printf("Shuffling Again: \n");
+    shuffle(library,4,rand());
     printf("Adding Songs to Empty Library: \n");
+    clear_library(library);
     insert_element(library, "Thunderstruck", "AC/DC");
     insert_element(library, "alive", "Pearl Jam");
     insert_element(library, "even flow", "Pearl Jam");
     print_library(library);
+    printf("Testing Print Artist\n");
+    print_artist(library, "Pearl Jam");
     return 0;
     
 }
